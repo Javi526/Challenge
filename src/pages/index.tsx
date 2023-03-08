@@ -4,13 +4,14 @@ import Nav from "@/components/common/nav";
 import Content from "@/components/content";
 import Footer from "@/components/footer";
 import { GetServerSideProps } from "next";
-import { ENDPOINT } from "@/config";
-import {HookContext} from "@/hooks/context";
+import { HookContext } from "@/hooks/context";
+import { Article_Interface } from "@/interface/common/article";
+import {ApiFetch} from "@/hooks/useFetch";
 
 type Props = {
     status: number,
-    data: any
-}
+    data: Article_Interface[]
+};
 
 export default function Home({ data, status } : Props) {
 
@@ -28,14 +29,13 @@ export default function Home({ data, status } : Props) {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-     const response = await fetch(ENDPOINT);
-     const status = response.status;
-     const data = await response.json();
 
-    return {
+      const { data, status } = await ApiFetch();
+
+     return {
         props: {
             data,
             status
         }
-    }
+     }
 }
