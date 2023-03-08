@@ -41,7 +41,7 @@ export const GetTags = ({ articles } : Props) => {
 
     const Order = (value: Record<string, Tag_Interface>) => {
         if (value) {
-            return Object?.values(AllTags)
+            return Object?.values(value)
                 .sort((a: Tag_Interface, b: Tag_Interface) => a.count - b.count)
                 .slice(0, 10)
         }
