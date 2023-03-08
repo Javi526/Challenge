@@ -1,0 +1,4 @@
+// constants article
+export const FETCH_DATA_ARTICLE_INIT: string = "FETCH_DATA_ARTICLE_INIT";
+export const FETCH_DATA_ARTICLE_SUCCESS: string = "FETCH_DATA_ARTICLE_SUCCESS";
+export const FETCH_DATA_ARTICLE_ERROR: string = "FETCH_DATA_ARTICLE_ERROR";
